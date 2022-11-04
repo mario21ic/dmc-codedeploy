@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "## Restart - start ##"
+
+cd /home/ec2-user/miapp && docker-compose up -d
+
+echo "## Restart - end ##"

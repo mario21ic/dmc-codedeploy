@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Usage
+# ./scripts/aws_artifact_upload <bucket s3> <bucket dir> <artifact>
+# ./scripts/aws_artifact_upload dmc-devops-code web 3.zip
+set -x
+
+S3_BUCKET=$1
+S3_DIR=$2
+ARTIFACT=$3
+
+S3_LOCATION="s3://$S3_BUCKET/$S3_DIR/$ARTIFACT"
+
+aws s3 cp $ARTIFACT $S3_LOCATION

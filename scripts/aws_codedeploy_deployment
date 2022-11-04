@@ -1,0 +1,18 @@
+#!/bin/bash
+# usage:   ./scripts/aws_codedeploy <codedeploy name> <codedeploy group> <bucket s3> <bucket dir> <artifactor>
+# example: ./scripts/aws_codedeploy draft-demo3-cd draft-demo3-dg dmc-devops-code web 3.zip
+set -x
+
+CD_NAME=$1
+CD_GROUP=$2
+S3_BUCKET=$3
+S3_DIR=$4
+ARTIFACT=$5
+CD_DESCRIPTION="Deploy_desde_${S3_BUCKET}"
+
+REGION="us-east-2"
+S3_KEY="$S3_DIR/$ARTIFACT"
+
+CD_CODE=$(aws deploy create-deployment --application-name $CD_NAME --s3-location bucket=$S3_BUCKET,key=$S3_KEY,bundleType=zip --deployment-group-name $CD_GROUP --deployment-config-name CodeDeployDefault.OneAtATime --auto-rollback-configuration enabled=false --description $CD_DESCRIPTION |jq '.deploymentId')
+
+echo "https://console.aws.amazon.com/codesuite/codedeploy/deployments/${CD_CODE//\"}?region=$REGION"

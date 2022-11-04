@@ -1,0 +1,4 @@
+region                = "us-west-2"
+env                   = "draft"
+name                  = "demo2"
+ec2_filter_value      = "draft-demo"

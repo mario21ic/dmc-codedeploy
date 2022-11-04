@@ -1,0 +1,6 @@
+region                = "us-west-2"
+env                   = "draft"
+name                  = "demo2"
+key_name              = "Alo2"
+instance_profile      = "draft-demo2-ec2-cd"
+ec2_filter_value      = "draft-demo"
