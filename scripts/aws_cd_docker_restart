@@ -2,6 +2,6 @@
 
 echo "## Restart - start ##"
 
-cd /home/ec2-user/miapp && docker-compose up -d
+cd /home/ec2-user/miapp && docker-compose down && docker-compose up -d
 
 echo "## Restart - end ##"
