@@ -7,6 +7,7 @@ pipeline {
         string(name: 'CD_GROUP', defaultValue: 'draft-demo3-dg', description: 'Deployment Group name')
         string(name: 'BUCKET', defaultValue: 'dmc-devops-code', description: 'Aws Bucket to get artifact')
         string(name: 'BUCKET_DIR', defaultValue: 'web', description: 'Bucket directory')
+        string(name: 'aws_credentials', defaultValue: 'aws-mario', description: 'AWS credentials')
     }
 
     environment {
@@ -30,8 +31,10 @@ pipeline {
 
         stage ('Deploy') {
             steps {
+              withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: "${params.aws_credentials}", accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                 sh "./scripts/aws_artifact_upload ${params.BUCKET} ${params.BUCKET_DIR} ${ARTIFACT}"
                 sh "./scripts/aws_codedeploy_deployment ${params.CD_NAME} ${params.CD_GROUP} ${params.BUCKET} ${params.BUCKET_DIR} ${ARTIFACT}"
+              }
             }
         }
     }
