@@ -25,6 +25,7 @@ pipeline {
         stage ('Build') {
             steps {
                 writeFile file: "build_number.txt", text: "${env.BUILD_NUMBER}"
+                sh "echo ${env.BUILD_NUMBER} >> index.html"
                 sh "./scripts/aws_artifact_build ${ARTIFACT}"
             }
         }
