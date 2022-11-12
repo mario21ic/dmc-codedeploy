@@ -64,7 +64,7 @@ Construir el zip y enviarlo a un bucket, luego pedir a codedeploy que lo tome
 ```
 ./scripts/aws_artifact_build 4
 ./scripts/aws_artifact_upload dmc-devops-2 mario 4.zip
-./scripts/aws_codedeploy_deployment devops-edi2-cd devops-edi2-dg dmc-devops-2 mario 4.zip
+./scripts/aws_codedeploy_deployment dmc2-alumno24-cd dmc2-alumno24-dg dmc-devops-2 mario 4.zip
 ```
 
 ### Deploy from Jenkins:

@@ -10,7 +10,7 @@ S3_DIR=$4
 ARTIFACT=$5
 CD_DESCRIPTION="Deploy_desde_${S3_BUCKET}"
 
-REGION="us-east-2"
+REGION="us-west-2"
 S3_KEY="$S3_DIR/$ARTIFACT"
 
 CD_CODE=$(aws deploy create-deployment --application-name $CD_NAME --s3-location bucket=$S3_BUCKET,key=$S3_KEY,bundleType=zip --deployment-group-name $CD_GROUP --deployment-config-name CodeDeployDefault.OneAtATime --auto-rollback-configuration enabled=false --description $CD_DESCRIPTION |jq '.deploymentId')

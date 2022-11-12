@@ -14,13 +14,13 @@ hooks:
       timeout: 300
       runas: ec2-user
   AfterInstall:
-    - location: scripts/aws_cd_rsync
+    - location: scripts/aws_cd_docker_rsync
       timeout: 300
       runas: ec2-user
     - location: scripts/aws_cd_rmdir
       timeout: 300
       runas: ec2-user
   ApplicationStart:
-    - location: scripts/aws_cd_restart
+    - location: scripts/aws_cd_docker_restart
       timeout: 300
       runas: ec2-user
