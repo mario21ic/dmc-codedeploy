@@ -3,10 +3,10 @@ pipeline {
     agent any
 
     parameters {
-        string(name: 'CD_NAME', defaultValue: 'draft-demo3-cd', description: 'Codedeploy App name')
-        string(name: 'CD_GROUP', defaultValue: 'draft-demo3-dg', description: 'Deployment Group name')
-        string(name: 'BUCKET', defaultValue: 'dmc-devops-code', description: 'Aws Bucket to get artifact')
-        string(name: 'BUCKET_DIR', defaultValue: 'web', description: 'Bucket directory')
+        string(name: 'CD_NAME', defaultValue: 'dmc2-alumno24-cd', description: 'Codedeploy App name')
+        string(name: 'CD_GROUP', defaultValue: 'dmc2-alumno24-dg', description: 'Deployment Group name')
+        string(name: 'BUCKET', defaultValue: 'dmc-devops-2', description: 'Aws Bucket to get artifact')
+        string(name: 'BUCKET_DIR', defaultValue: 'mario', description: 'Bucket directory')
         string(name: 'aws_credentials', defaultValue: 'aws-mario', description: 'AWS credentials')
     }
 
